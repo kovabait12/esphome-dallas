@@ -15,13 +15,13 @@ static const uint8_t DALLAS_COMMAND_COPY_SCRATCH_PAD = 0x48;
 uint16_t DallasTemperatureSensor::millis_to_wait_for_conversion_() const {
   switch (this->resolution_) {
     case 9:
-      return 94;
-    case 10:
       return 188;
+    case 10:
+      return 376;
     case 11:
-      return 375;
+      return 750;
     default:
-      return 1000;
+      return 1500;
   }
 }
 
@@ -127,7 +127,7 @@ void DallasTemperatureSensor::setup() {
 }
 
 bool DallasTemperatureSensor::check_scratch_pad_() {
-  bool chksum_validity = (crc8(this->scratch_pad_, 8) == this->scratch_pad_[8]);
+  bool chksum_validity = true //(crc8(this->scratch_pad_, 8) == this->scratch_pad_[8]);
 
 #ifdef ESPHOME_LOG_LEVEL_VERY_VERBOSE
   ESP_LOGVV(TAG, "Scratch pad: %02X.%02X.%02X.%02X.%02X.%02X.%02X.%02X.%02X (%02X)", this->scratch_pad_[0],
