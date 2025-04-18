@@ -8,7 +8,7 @@ from esphome.const import (
     UNIT_CELSIUS,
 )
 
-dallas_temp_ns = cg.esphome_ns.namespace("dallas_temp_fix")
+dallas_temp_ns = cg.esphome_ns.namespace("dallas_temp")
 
 DallasTemperatureSensor = dallas_temp_ns.class_(
     "DallasTemperatureSensor",
