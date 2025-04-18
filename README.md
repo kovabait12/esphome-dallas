@@ -6,9 +6,8 @@ Now the component waits twice as long for the temperature sensor to convert the 
 
 # How to use?
 Add this before your code:
-
-'''code
+'
 external_components:
   - source: github://kovabait12/esphome-dallas
     components: dallas-temp
-'''
+'
